@@ -9,7 +9,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.8.0",
   "devDependencies": {
     "@types/node": "^22.14.0",
     "typescript": "^5.8.3"
