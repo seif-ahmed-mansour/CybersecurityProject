@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cryptography Visualizer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Cryptography Visualizer</h1>
+        <p class="subtitle">Explore cryptographic algorithms with step-by-step visualization</p>
+      </header>
+
+      <div class="algorithm-selector">
+        <label for="algorithm">Select Algorithm:</label>
+        <select id="algorithm">
+          <option value="sha1">SHA-1</option>
+          <option value="aes">AES</option>
+          <option value="rsa" selected>RSA</option>
+        </select>
+      </div>
+
+      <main>
+        <!-- SHA-1 Section -->
+        <section id="sha1-section" class="crypto-section hidden">
+          <div class="section-header">
+            <h2>SHA-1 Hash Generator</h2>
+            <p class="section-description">Generate SHA-1 hash of your text</p>
+          </div>
+          <div class="input-group">
+            <label for="sha1Input">Enter text to hash:</label>
+            <input type="text" id="sha1Input" placeholder="Enter text..." />
+            <button id="generateHash" class="primary-button">Generate Hash</button>
+          </div>
+        </section>
+
+        <!-- AES Section -->
+        <section id="aes-section" class="crypto-section hidden">
+          <div class="section-header">
+            <h2>AES Encryption/Decryption</h2>
+            <p class="section-description">Encrypt or decrypt text using AES-ECB mode</p>
+          </div>
+          <div class="input-group">
+            <label for="aesInput">Enter text:</label>
+            <input type="text" id="aesInput" placeholder="Enter text..." />
+            <label for="aesKey">Enter 16-character key:</label>
+            <input type="text" id="aesKey" placeholder="Enter key (16 characters)" />
+            <div class="button-group">
+              <button id="encryptAES" class="primary-button">Encrypt</button>
+              <button id="decryptAES" class="secondary-button">Decrypt</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- RSA Section -->
+        <section id="rsa-section" class="crypto-section">
+          <div class="section-header">
+            <h2>RSA Encryption/Decryption</h2>
+            <p class="section-description">Encrypt or decrypt text using RSA algorithm</p>
+          </div>
+          <div class="key-display">
+            <div class="key-section">
+              <h3>Public Key</h3>
+              <pre id="publicKeyDisplay" class="key-box"></pre>
+            </div>
+            <div class="key-section">
+              <h3>Private Key</h3>
+              <pre id="privateKeyDisplay" class="key-box"></pre>
+            </div>
+            <button id="generateNewKeys" class="generate-keys-btn">Generate New Keys</button>
+          </div>
+          <div class="input-group">
+            <label for="rsaInput">Enter text to encrypt/decrypt:</label>
+            <input type="text" id="rsaInput" placeholder="Enter text..." />
+            <div class="button-group">
+              <button id="encryptRSA" class="primary-button">Encrypt</button>
+              <button id="decryptRSA" class="secondary-button">Decrypt</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="results-section">
+          <div class="section-header">
+            <h2>Results</h2>
+            <p class="section-description">View the output and process steps</p>
+          </div>
+          <div class="result-container">
+            <h3>Result</h3>
+            <div id="result" class="result"></div>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>Cryptography Visualizer &copy; 2024</p>
+      </footer>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
