@@ -64,7 +64,7 @@ async function aesEcbTest() {
     let encrypted = cipher.update(plaintext, "utf8");
     encrypted = Buffer.concat([encrypted, cipher.final()]);
     const ciphertextHex = toHexString(encrypted);
-    console.log("Ciphertext (hex):", ciphertextHex);
+    console.log("Ciphertext (hex):", ciphertextHex.toUpperCase());
 
     // Create decipher
     const decipher = crypto.createDecipheriv("aes-128-ecb", key, null);
