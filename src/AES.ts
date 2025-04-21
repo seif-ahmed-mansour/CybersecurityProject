@@ -24,20 +24,24 @@ function AesDecrypt(key: Buffer, encrypted: Buffer): Buffer<ArrayBuffer> {
 // Main AES-ECB encryption and decryption
 export async function AesTest() {
   try {
+    console.log("# ---- AES-ECB ---- #");
+
     const key = crypto.randomBytes(16);
 
-    const plaintext = await input("Enter text to cipher: ");
-    console.log("Plaintext:", plaintext);
+    const plaintext = await input("Enter text to cipher (AES-ECB): ");
+    console.log(`Plaintext: ${plaintext}`);
 
     // Encrypt
     const encrypted = AesEncrypt(plaintext, key);
     const ciphertextHex = toHexString(encrypted);
-    console.log("Ciphertext (hex):", ciphertextHex);
+    console.log(`Ciphertext (hex): ${ciphertextHex.toUpperCase()}`);
 
     // Decrypt
     const decrypted = AesDecrypt(key, encrypted).toString("utf8");
-    console.log("Decrypted:", decrypted);
+    console.log(`Decrypted: ${decrypted}`);
   } catch (error) {
-    console.error("Error:", error);
+    console.error(`Error: ${error}`);
+  } finally {
+    console.log("# ---- AES-ECB ---- #");
   }
 }
