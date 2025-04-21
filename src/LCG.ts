@@ -23,6 +23,6 @@ const MULTIPLIER = 6_364_136_223_846_793_005n; // a => Primitive root modulo
 // c => Setting c = 0 makes this a Multiplicative Congruential Generator (MCG)
 const INCREMENT = 1_442_695_040_888_963_407n;
 
-const INITIALSEED = BigInt(Date.now()); // Random initial seed within the range [1, m - 1]
+const INITIAL_SEED = BigInt(Date.now()); // Random initial seed within the range [1, m - 1]
 
-export const LCG = LcgGenerator(MODULUS, MULTIPLIER, INCREMENT, INITIALSEED);
+export const LCG = LcgGenerator(MODULUS, MULTIPLIER, INCREMENT, INITIAL_SEED);
