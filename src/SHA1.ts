@@ -1,4 +1,5 @@
 import { Buffer } from "node:buffer";
+import { input } from "./utils.ts";
 
 /**
  * Perform a 32-bit circular left rotation on a number.
@@ -131,5 +132,19 @@ function sha1(message: string): string {
   return hashBuf.toString("hex");
 }
 
-// Example usage
-console.log(sha1("hello")); // aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d
+export async function Sha1Test() {
+  try {
+    console.log("# ---- SHA-1 ---- #");
+
+    const plaintext = await input("Enter text to cipher (SHA-1): ");
+    console.log(`Plaintext: ${plaintext}`);
+
+    // Encrypt
+    const encrypted = sha1(plaintext);
+    console.log(`Ciphertext (hex): ${encrypted}`);
+  } catch (error) {
+    console.error(`Error: ${error}`);
+  } finally {
+    console.log("# ---- SHA-1 ---- #");
+  }
+}
